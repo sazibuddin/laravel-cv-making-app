@@ -47,6 +47,7 @@ class PersonalInfoController extends Controller
             'email' => ['required'],
             'blood_group' => ['required'],
             'address' => ['required'],
+            'skill' => ['required'],
             'image' => ['required'],
         ]);
 
@@ -62,6 +63,7 @@ class PersonalInfoController extends Controller
         $data->email = $request->email;
         $data->blood_group = $request->blood_group;
         $data->address = $request->address;
+        $data->skill = $request->skill;
 
 
          $image = $request->file('image');

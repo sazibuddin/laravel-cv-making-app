@@ -42,7 +42,19 @@
 
       
          <!-- star personal info form  -->
-
+         @if(session()->has('success'))
+         <div class="alert alert-success alert-dismissible fade show" role="alert">
+             {{ session()->get('success') }}
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+         </div>
+         @endif
+      @if(session()->has('failed'))
+             <div class="alert alert-danger">
+                 {{ session()->get('failed') }}
+             </div>
+         @endif
         @if($information && $information->count() > 0)
          <form>
             <div class="row">
@@ -127,19 +139,7 @@
          @else 
 
 
-         @if(session()->has('success'))
-         <div class="alert alert-success alert-dismissible fade show" role="alert">
-             {{ session()->get('success') }}
-             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-             </button>
-         </div>
-         @endif
-      @if(session()->has('failed'))
-             <div class="alert alert-danger">
-                 {{ session()->get('failed') }}
-             </div>
-         @endif
+      
       <form action="{{ route('user.personalInfo.add') }}" method="post" enctype="multipart/form-data">
          @csrf
          <div class="row">
@@ -265,6 +265,18 @@
                  @enderror
                  </div>
              </div>
+             <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="skill">Skill</label>
+                    <textarea name="skill" id="skill" class="form-control rounded-0 @error('skill') border-danger @enderror" placeholder="Write Something about you skill"></textarea>
+                    @error('skill')
+                    <span class="input-error">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                </div>
+            </div>
+            
              <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     <label for="image">Select a image (size less than 1mb)</label>

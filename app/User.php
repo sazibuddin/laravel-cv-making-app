@@ -42,4 +42,11 @@ class User extends Authenticatable
         return $this->hasOne(PersonalInfo::class,'user_id');
     }
 
+    public function experienceInfo() {
+        return $this->hasMany(ExperienceInfo::class);
+    }
+    public function educationInfo() {
+        return $this->hasMany(EducationInfo::class);
+    }
+
 }

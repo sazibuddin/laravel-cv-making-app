@@ -26,6 +26,7 @@ class CreatePersonalInfosTable extends Migration
             $table->string('email');
             $table->string('blood_group');
             $table->text('address');
+            $table->text('skill');
             $table->text('image');
             $table->timestamps();
         });

@@ -58,8 +58,14 @@
                         <label for="education_level">Level of Education</label>
                         <select id="education_level" name="education_level" class="form-control rounded-0 @error('education_level') border-danger @enderror">
                             <option selected disabled>Select a level</option>
-                            <option value="ssc">SSC</option>
-                            <option value="jsc">JSC</option>
+                            <option value="PSC">PSC/5 pass</option>
+                            <option value="JSC/JDC/8">JSC/JDC/8 </option>
+                            <option value="Secondary" selected="">Secondary</option>
+                            <option value="Higher Secondary">Higher Secondary</option>
+                            <option value="Diploma">Diploma</option>
+                            <option value="Bachelor/Honors">Bachelor/Honors</option>
+                            <option value="Masters">Masters</option>
+                            <option value="PhD (Doctor of Philosophy)">PhD (Doctor of Philosophy)</option></select>
                         </select>
                         <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
                         @error('education_level')

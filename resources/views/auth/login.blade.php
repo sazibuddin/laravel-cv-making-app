@@ -39,6 +39,7 @@
                 </div>
               
             </form>
+            <p>Don't have account ? please <a href="{{ route('register') }}">Register</a></p>
         </div>
     </div>
     </div>

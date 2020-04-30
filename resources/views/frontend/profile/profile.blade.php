@@ -13,7 +13,7 @@
         padding: 0;
         color: #333333;
     }
-    .section-heading {
+    .cv-section-heading {
         color: green;
         font-family: tahoma,sans-serif;
         margin: 0;
@@ -29,7 +29,7 @@
     .cv-education-area {
         margin: 15px 0;
     }
-    p {
+    .cv-view-main p {
         margin: 0;
         padding: 0;
         font-size: 15px;
@@ -54,48 +54,52 @@
         <div class="card-body">
             <div class="cv-header d-flex justify-content-between">
                <div class="header-info">
-                <div class="name"><h2>Md Sazib uddin</h2></div>
-                <div class="degination"> <h4 class="section-heading">Industrial designer</h4></div>
+                <div class="name"><h2>{{ $users->name }}</h2></div>
                 <div class="address_contact_info">
-                    <p>74/0 - b-block</p>
-                    <p>newmarket, jessore</p>
-                    <p>+8801729441788</p>
-                    <p>sazibuddin19@gmail.com</p>
+                    <p>{{ $users->personalInfo->address }}</p>
+                    <p>{{ $users->personalInfo->email }}</p>
+                    <p>{{ $users->personalInfo->con_no }}</p>
+                    {{-- <p>newmarket, jessore</p> --}}
                 </div>
                </div>
                <div class="header-image">
-                   <img src="assets/images/1588156210.png" class="img-thumbnail" alt="">
+                   <img src="{{ asset($users->personalInfo->image) }}" class="img-thumbnail" alt="">
                </div>
             </div>
             <div class="cv-skill-area">
-                <h4 class="section-heading">Skill</h4>
+                <h4 class="cv-section-heading">Skill</h4>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, iusto.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, iusto
+                    {{  $users->personalInfo->skill }}
                 </p>
             </div>
             <div class="cv-experience-area">
-                <h4 class="section-heading">Experience</h4>
+                <h4 class="cv-section-heading">Experience</h4>
+                @foreach ($users->experienceInfo as $experience)
                 <div class="cv-experience-single">
-                    <p><b>Chaklader corp</b> <small>Web developer</small></p>
+                    <p><b>{{ $experience->company_name }}</b> <small>{{ $experience->designation }}</small></p>
                     <div class="job-periode-are">
-                        <p>2000 - 2010 <small class="department">Programming</small></p>
+                        <p>{{ $experience->working_from }} - {{ $experience->working_to }} <small class="department">{{ $experience->department }}</small></p>
                     </div>
                     <div class="details ml-2">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                        <p>location : {{ $experience->company_locoation }}</p>
                     </div>
                 </div>
+                @endforeach
+              
             </div>
 
             <div class="cv-education-area">
-                <h4 class="section-heading">Education</h4>
+                <h4 class="cv-section-heading">Education</h4>
+                @foreach ($users->educationInfo as $education)
                 <div class="cv-education-single">
-                    <p><b>Narayanpur bu high school</b> <small>ssc</small></p>
+                    <p><b>{{ $education->degree_title }}</b> <small>{{ $education->education_level }}</small></p>
                     <div class="job-periode-are">
-                        <p>2010 - 2015 <small class="department">Programming</small></p>
-                        <p>Result : 4.95 , Board: jessore</p>     
+                        <p>Passing year : {{ $education->passing_year }} <small class="department">{{ $education->institute_name }}</small></p>
+                        <p>Result : {{ $education->result }} , Board: {{ $education->board_name }}</p>     
                     </div>
                 </div>
+                @endforeach
+               
             </div>
         </div>
     </div>
