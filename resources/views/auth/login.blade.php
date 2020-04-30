@@ -31,7 +31,11 @@
                           <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} >
                           <span class="checkmark"></span>
                       </label>
-                      <a href="#">Forget password ?</a>
+                      @if (Route::has('password.request'))
+                      <a class="btn btn-link" href="{{ route('password.request') }}">
+                          {{ __('Forgot Your Password?') }}
+                      </a>
+                  @endif
                   </div>
               </div>
              <div class="form-group">

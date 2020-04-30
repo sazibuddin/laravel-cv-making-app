@@ -35,8 +35,25 @@
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <a href="{{ url('admin/view/user/'.$item->id) }}" class="btn btn-success btn-sm rounded-0"><i class="fas fa-eye"></i></a>
-                                    <button type="button" class="btn btn-secondary btn-sm rounded-0 ml-1"><i class="fas fa-edit"></i></button>
-                                    <button type="button" class="btn btn-danger btn-sm rounded-0 ml-1"><i class="fas fa-trash"></i></button>
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary btn-sm rounded-0 ml-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="{{ url('admin/edit/educationalInfo/'.$item->id) }}"class="dropdown-item">Edit educational info</a>
+                                            <a href="{{ url('admin/edit/experienceInfo/'.$item->id) }}"class="dropdown-item">Edit experience info</a>
+                                            <a href="{{ url('admin/edit/personalInfo/'.$item->id) }}"class="dropdown-item">Edit personal info</a>
+                                        
+                                        </div>
+                                      </div>
+
+
+
+
+                                   
+
+                                    <a href="{{ url('admin/delete/user/'.$item->id) }}"class="btn btn-danger btn-sm rounded-0 ml-1" onclick="return confirm('Are you sure want to delte this data ? ')"><i class="fas fa-trash"></i></a>
                                   </div>   
                             </td>    
                         </tr> 

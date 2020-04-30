@@ -23,6 +23,13 @@ Auth::routes();
 Route::get('/admin/home', 'AdminController@admin')->name('admin.home');  
 Route::get('/admin/home/all/user', 'AdminController@all_member')->name('admin.all.member');  
 Route::get('/admin/view/user/{id}', 'AdminController@show');  
+Route::get('admin/delete/user/{id}', 'AdminController@deleteUser');  
+Route::get('admin/edit/personalInfo/{id}', 'AdminController@editpersonalInfo');  
+Route::post('update/personal_info/{id}', 'AdminController@updatepersonalInfo');  
+Route::get('admin/edit/experienceInfo/{id}', 'AdminController@experienceInfo');  
+Route::post('update/experienceInfo/{id}', 'AdminController@updateexperienceInfo');  
+Route::get('admin/edit/educationalInfo/{id}', 'AdminController@editeducationalInfo');  
+Route::post('update/educationalInfo/{id}', 'AdminController@updateeducationalnfo');  
 
 
 
