@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.register');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -22,6 +22,7 @@ Auth::routes();
 
 Route::get('/admin/home', 'AdminController@admin')->name('admin.home');  
 Route::get('/admin/home/all/user', 'AdminController@all_member')->name('admin.all.member');  
+Route::get('/admin/view/user/{id}', 'AdminController@show');  
 
 
 

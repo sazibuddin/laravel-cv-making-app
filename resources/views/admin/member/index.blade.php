@@ -34,7 +34,7 @@
                             <td>{{ optional($item->personalInfo)->con_no }}</td>    
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-success btn-sm rounded-0"><i class="fas fa-eye"></i></button>
+                                    <a href="{{ url('admin/view/user/'.$item->id) }}" class="btn btn-success btn-sm rounded-0"><i class="fas fa-eye"></i></a>
                                     <button type="button" class="btn btn-secondary btn-sm rounded-0 ml-1"><i class="fas fa-edit"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm rounded-0 ml-1"><i class="fas fa-trash"></i></button>
                                   </div>   

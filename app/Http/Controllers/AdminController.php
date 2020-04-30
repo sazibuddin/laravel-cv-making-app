@@ -15,4 +15,12 @@ class AdminController extends Controller
         
         return view('admin.member.index',compact('users'));
     }
+
+
+    public function show($id) {
+
+        $users = User::where('id', $id)->first();
+        return view('admin.member.view',compact('users'));
+
+    }
 }

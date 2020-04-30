@@ -4,8 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+            <div class="card mt-5">
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,13 +12,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-@php
-    echo Auth::user()->role;
-@endphp
-
-
-                    You are logged in!
+                       <h2 class="text-center"> Welcome, {{ Auth::user()->name }}</h2>
+                       <div class="content text-center">
+                        <p >Start to build you cv</p>
+                        <a href="{{ url('personal_info') }}" class="btn btn-link">Start</a></div> 
                 </div>
             </div>
         </div>

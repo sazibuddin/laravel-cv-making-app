@@ -20,7 +20,7 @@
         <div class="navbar-area">
            <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="{{ route('login') }}">
                   <img src="{{ asset('frontend/assets/images/logo-main-black-1-300x36.png') }}" alt="">
               </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +54,7 @@
               </li>
               @else
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                <a class="nav-link" href="{{ route('register') }}">Login</a>
               </li>
                  @endif
                 </ul>
