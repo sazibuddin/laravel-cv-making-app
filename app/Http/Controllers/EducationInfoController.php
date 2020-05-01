@@ -85,7 +85,9 @@ class EducationInfoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = EducationInfo::findOrFail($id);
+        return view('frontend.edit.educational', compact('item'));
+
     }
 
     /**
@@ -97,7 +99,33 @@ class EducationInfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $data = EducationInfo::findOrFail($id);
+
+        $validatedData = $request->validate([
+            'education_level' => ['required'],
+            'degree_title' => ['required'],
+            'result' => ['required'],
+            'passing_year' => ['required'],
+            'board_name' => ['required'],
+            'institute_name' => ['required'],
+        ]);
+
+
+        $data->education_level = $request->education_level;
+        $data->degree_title = $request->degree_title;
+        $data->result = $request->result;
+        $data->passing_year = $request->passing_year;
+        $data->board_name = $request->board_name;
+        $data->institute_name = $request->institute_name;
+
+        $res = $data->save();
+
+        if($res){
+         return redirect()->back()->with('success', 'Your education information added successfully');
+        }else{
+         return redirect()->back()->with('failed', 'Faile to add Your education information. please try again');
+        }
     }
 
     /**

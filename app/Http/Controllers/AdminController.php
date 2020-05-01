@@ -36,7 +36,7 @@ class AdminController extends Controller
  
     public function updatepersonalInfo(Request $request , $id) {
         $data = PersonalInfo::findOrFail($id);
-
+        $old_image = $request->old_image;
         $validatedData = $request->validate([
             'fathers_name' => ['required'],
             'mothers_name' => ['required'],
@@ -59,8 +59,23 @@ class AdminController extends Controller
         $data->address = $request->address;
         $data->skill = $request->skill;
         
-     
-        if($data->save()){
+        $image = $request->file('image');
+
+        if($image) {
+            unlink($old_image);
+            $image_name = time();
+            $ext = strtolower($image->getClientOriginalExtension());
+            $image_full_name = $image_name.'.'.$ext;
+            $upload_path = 'media/person_image/';
+            $image_url = $upload_path.$image_full_name;
+            $succcess = $image->move($upload_path, $image_full_name);
+
+            $data->image = $image_url;
+            $res = $data->save();
+        }else{
+            $res = $data->save();
+        }
+        if($res){
             $notification = array(
                 'messege' => 'personal info update successfully',
                 'alert-type' => 'success',
@@ -172,9 +187,13 @@ class AdminController extends Controller
     public function deleteUser($id){
 
         $user = User::findOrFail($id);
-        $person_info = PersonalInfo::where('user_id', $id )->delete();
+        $person_info = PersonalInfo::where('user_id', $id )->first();
+        $image = $person_info->image;
+        unlink($image);
+        $person_info->delete();
         $education_info = EducationInfo::where('user_id', $id )->delete();
         $experience_info = ExperienceInfo::where('user_id', $id )->delete();
+       
         $res = $user->delete();
         if($res){
             $notification = array(

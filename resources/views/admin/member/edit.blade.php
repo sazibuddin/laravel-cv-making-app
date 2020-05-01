@@ -132,6 +132,8 @@
                                    <label for="image">Select a image (size less than 1mb)</label>
                                    <br>
                                    <input type="file" name="image">
+                                   <img src="{{ asset($user->personalInfo->image) }}" style="width:80px;" alt="">
+                                   <input type="hidden" name="old_image" value="{{  $user->personalInfo->image }}">
                                </div>
                            </div>
                          <div class="col-md-12 col-lg-12">

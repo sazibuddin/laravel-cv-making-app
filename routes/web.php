@@ -43,14 +43,21 @@ Route::group(['middleware' => ['auth','user']], function () {
     Route::get('/home', 'HomeController@index')->name('home'); 
     Route::get('/user-profile/{id}', 'UserController@profile_view'); 
     Route::get('/personal_info' , 'PersonalInfoController@index');
-    Route::post('/user/addPersonalInfo' , 'PersonalInfoController@store')->name('user.personalInfo.add');
+    Route::post('user/addPersonalInfo' , 'PersonalInfoController@store')->name('user.personalInfo.add');
+    Route::get('/user/edit/personalInfo/{id}' , 'PersonalInfoController@edit');
+    Route::post('user/update/personal_info/{id}' , 'PersonalInfoController@update');
     
     Route::get('/educational_info' , 'EducationInfoController@index');
     Route::post('/user/addeducationalInfo' , 'EducationInfoController@store')->name('user.educationalInfo.add');
 
+    Route::get('/user/edit/educational/{id}' , 'EducationInfoController@edit');
+    Route::post('user/update/educational/{id}' , 'EducationInfoController@update');
+    
     Route::get('/experience_info' , 'ExperienceInfoController@index');
     Route::post('/user/addexperienceInfo' , 'ExperienceInfoController@store')->name('user.experienceInfo.add');
-
+    Route::get('/user/edit/experience/{id}' , 'ExperienceInfoController@edit');
+    Route::post('user/update/experienceInfo/{id}' , 'ExperienceInfoController@update');
+    
 
 });
 

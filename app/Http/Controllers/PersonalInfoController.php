@@ -108,7 +108,8 @@ class PersonalInfoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $personal = PersonalInfo::findOrFail($id);
+        return view('frontend.edit.personalInfo',compact('personal'));
     }
 
     /**
@@ -120,17 +121,52 @@ class PersonalInfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $data = PersonalInfo::findOrFail($id);
+        $old_image = $request->old_image;
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $validatedData = $request->validate([
+            'fathers_name' => ['required'],
+            'mothers_name' => ['required'],
+            'nationality' => ['required'],
+            'gender' => ['required'],
+            'con_no' => ['required'],
+            'blood_group' => ['required'],
+            'address' => ['required'],
+            'skill' => ['required'],
+        ]);
+
+
+        $data->fathers_name = $request->fathers_name;
+        $data->mothers_name = $request->mothers_name;
+        $data->nationality = $request->nationality;
+        $data->nid = $request->nid;
+        $data->gender = $request->gender;
+        $data->con_no = $request->con_no;
+        $data->blood_group = $request->blood_group;
+        $data->address = $request->address;
+        $data->skill = $request->skill;
+
+        $image = $request->file('image');
+
+        if($image) {
+            unlink($old_image);
+            $image_name = time();
+            $ext = strtolower($image->getClientOriginalExtension());
+            $image_full_name = $image_name.'.'.$ext;
+            $upload_path = 'media/person_image/';
+            $image_url = $upload_path.$image_full_name;
+            $succcess = $image->move($upload_path, $image_full_name);
+
+            $data->image = $image_url;
+            $res = $data->save();
+        }else{
+            $res = $data->save();
+        }
+
+        if($res){
+            return redirect()->back()->with('success', 'Your personal information update successfully');
+        }else{
+            return redirect()->back()->with('failed', 'Faile to update Your personal information. please try again');
+        }
     }
 }

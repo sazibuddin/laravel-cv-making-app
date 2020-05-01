@@ -1,5 +1,8 @@
 @extends('layouts.user.layout')
 <style>
+    body {
+        font-family: tahoma,sans-serif;
+    }
     .cv-view-main {
         width: 595px;
         height: 842px;
@@ -18,12 +21,14 @@
         font-family: tahoma,sans-serif;
         margin: 0;
         padding: 0;
+        'Manrope', sans-serif
     }
     .address_contact_info p {
         margin: 0;
         padding: 0;
         font-size: 15px;
         color: #333333;
+        font-family: tahoma,sans-serif;
     }
     .cv-skill-area,
     .cv-education-area {
@@ -33,6 +38,7 @@
         margin: 0;
         padding: 0;
         font-size: 15px;
+        font-family: 'Manrope', sans-serif
     }  
     .cv-experience-single,
     .cv-education-single {

@@ -47,7 +47,10 @@
                 $i++;
             @endphp
                <div class="card">
-                   <div class="card-header"><h5>Experience {{ $i }}</h5></div>
+                   <div class="card-header d-flex justify-content-between">
+                       <h5>Experience {{ $i }}</h5>
+                       <a href="{{ url('/user/edit/experience/'.$item->id) }}" class="btn btn-success rounded-0">Edit</a>  
+                    </div>
                    <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 col-lg-6">

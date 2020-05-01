@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+    
   </head>
   <body>
 <div class="page-wrapper" >
@@ -34,6 +35,9 @@
                  @if(Auth::check())
                  <li class="nav-item">
                   <a class="nav-link" href="{{ url('user-profile/'. Auth::user()->id) }}">Preview cv</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url('personal_info')}}">edit cv</a>
                 </li>
                  <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -72,6 +76,9 @@
 
 
     </div>
+    <footer class="footer-area shadow-lg  p-4 mt-2 text-center">
+      <p>Copyright &copy; All rights reserved for <a href="https://futurefashionology.com/" target="_blank">Future fashonology</a></p>
+    </footer>
 </div>
 
 

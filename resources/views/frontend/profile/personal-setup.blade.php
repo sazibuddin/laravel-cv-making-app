@@ -44,42 +44,46 @@
          <!-- star personal info form  -->
 
         @if($information && $information->count() > 0)
+        <a href="{{ url('user/edit/personalInfo/'.$information->id) }}" class="btn btn-success rounded-0">Edit</a>
          <form>
             <div class="row">
+            <div class="col-md-12">
+                <hr>
+            </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
-                        <label for="name">Full name *</label>
-                        <input type="text" id="name" name="name" class="form-control rounded-0" value="{{ $information->name }}" readonly>
+                        <label for="name">Full name</label>
+                        <h6 class="mt-1"><b>{{ $information->name }}</b></h6>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
-                        <label for="fathers_name">Father's name * </label>
-                        <input type="text" id="fathers_name" name="fathers_name" class="form-control rounded-0" value="{{ $information->fathers_name }}" readonly >
+                        <label for="fathers_name">Father's name </label>
+                        <h6 class="mt-1"><b>{{ $information->fathers_name }}</b></h6>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="mothers_name">mother's name * </label>
-                        <input type="text" id="mothers_name" name="mothers_name" class="form-control rounded-0" value="{{ $information->mothers_name }}" readonly >
+                        <h6 class="mt-1"><b>{{ $information->mothers_name }}</b></h6>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="nationality">Nationality </label>
-                        <input type="text" id="nationality" name="nationality" class="form-control rounded-0 @error('nationality') border-danger @enderror" value="{{ $information->nationality }}" readonly>
+                        <h6 class="mt-1"><b>{{ $information->nationality }}</b></h6>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="nid">NID</label>
-                        <input type="text" id="nid" name="nid" class="form-control rounded-0" value="{{ $information->nid }}" readonly >
+                        <h6 class="mt-1"><b>{{ $information->nid }}</b></h6>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="gender">Gender</label>
-                       <input type="text" class="form-control" value="{{ $information->gender }}" readonly>
+                       <h6 class="mt-1"><b>{{ $information->gender }}</b></h6>
                     
                     </div>
                 </div>
@@ -87,35 +91,30 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="contact_number">Contact number</label>
-                        <input type="text" id="con_no" name="con_no" class="form-control rounded-0" value="{{ $information->con_no }}" readonly>
-                      
+                        <h6 class="mt-1"><b>{{ $information->con_no }}</b></h6>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="email">Email </label>
-                        <input type="email" id="email" name="email" class="form-control rounded-0 " value="{{ $information->email }}" readonly>
+                        <h6 class="mt-1"><b>{{ $information->email }}</b></h6>
                      </div>
                 </div>
                  <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="blood_group">Blood group</label>
-                        <input type="text" class="form-control" value="{{ $information->blood_group }}" readonly>
-                        @error('blood_group')
-                        <span class="input-error">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                        <h6 class="mt-1"><b>{{ $information->blood_group }}</b></h6>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <textarea name="address" id="address" class="form-control rounded-0" readonly>{{ $information->address }}</textarea>
+                        <h6 class="mt-1"><b>{{ $information->address }}</b></h6>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
+                        <label>Image : </label>
                         <img src="{{ url($information->image) }}" alt="">
                     </div>
                 </div>

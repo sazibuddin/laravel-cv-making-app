@@ -5,7 +5,7 @@
     <div class="col-md-6 col-lg-6 offset-md-3 offset-lg-3">
         <div class="register-form shadow shadow-sm p-5 mt-5">
             <div class="register-header text-center">
-                <h4>Be a member</h4>
+                <h5 class="mb-4"><br>Be a member future fashonology</h5>
             </div>
             <form method="POST" action="{{ route('register') }}">
                 @csrf
