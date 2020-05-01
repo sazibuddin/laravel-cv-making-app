@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ExperienceInfo;
+use Illuminate\Support\Facades\Auth;
+
 class ExperienceInfoController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class ExperienceInfoController extends Controller
      */
     public function index()
     {
-        return view('frontend.profile.experience');
+        $experiencs = ExperienceInfo::where('user_id', Auth::user()->id )->get();
+        return view('frontend.profile.experience' , compact('experiencs'));
     }
 
     /**

@@ -51,6 +51,7 @@
 @section('content')
 <div class="cv-view-main">
     <div class="card">
+        @if($users->personalInfo && $users->personalInfo->count() > 0)
         <div class="card-body">
             <div class="cv-header d-flex justify-content-between">
                <div class="header-info">
@@ -102,6 +103,16 @@
                
             </div>
         </div>
+            @else 
+               <div class="warning-area p-3 text-center">
+                    <div class="alert alert-info">Please add at lest personal information to preview your cv</div>
+
+                    <a href="{{ url('personal_info') }}" class="btn btn-success rounded-0">Add personal info</a>
+               </div>
+
+            @endif
+        
+       
     </div>
   </div>
 @endsection

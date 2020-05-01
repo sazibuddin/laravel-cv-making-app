@@ -46,6 +46,7 @@
              <div class="form-group text-center">
                     <button type="submit" class="btn btn-success rounded-0">Continue</button>
                 </div>
+                <p class="text-center">Already have an account ? please <a href="{{ route('login') }}">login</a></p>
              </form>
         </div>
     </div>

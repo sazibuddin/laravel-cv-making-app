@@ -37,7 +37,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        if(Auth::check() && Auth::user()->role == 'admin'){
+        if(Auth::check() && Auth::user()->id == 4){
             $this->redirectTo = route('admin.home');
         }else{
             $this->redirectTo = route('home');

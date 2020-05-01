@@ -158,7 +158,7 @@
              <div class="col-md-6 col-lg-6">
                  <div class="form-group">
                      <label for="fathers_name">Father's name * </label>
-                     <input type="text" id="fathers_name" name="fathers_name" class="form-control rounded-0 @error('fathers_name') border-danger @enderror" placeholder="Your Full name" >
+                     <input type="text" id="fathers_name" name="fathers_name" class="form-control rounded-0 @error('fathers_name') border-danger @enderror" placeholder="Your Full name" value="{{ old('fathers_name') }}">
                      @error('fathers_name')
                      <span class="input-error">
                          <strong>{{ $message }}</strong>
@@ -169,7 +169,7 @@
              <div class="col-md-6 col-lg-6">
                  <div class="form-group">
                      <label for="mothers_name">mother's name * </label>
-                     <input type="text" id="mothers_name" name="mothers_name" class="form-control rounded-0 @error('mothers_name') border-danger @enderror" placeholder="Your Full name" >
+                     <input type="text" id="mothers_name" name="mothers_name" class="form-control rounded-0 @error('mothers_name') border-danger @enderror" placeholder="Your Full name" value="{{ old('mothers_name') }}">
                      @error('mothers_name')
                      <span class="input-error">
                          <strong>{{ $message }}</strong>
@@ -180,7 +180,7 @@
              <div class="col-md-6 col-lg-6">
                  <div class="form-group">
                      <label for="nationality">Nationality </label>
-                     <input type="text" id="nationality" name="nationality" class="form-control rounded-0 @error('nationality') border-danger @enderror" placeholder="Your Full name" >
+                     <input type="text" id="nationality" name="nationality" class="form-control rounded-0 @error('nationality') border-danger @enderror" placeholder="Your Full name" value="{{ old('nationality') }}">
                      @error('nationality')
                      <span class="input-error">
                          <strong>{{ $message }}</strong>
@@ -191,7 +191,7 @@
              <div class="col-md-6 col-lg-6">
                  <div class="form-group">
                      <label for="nid">NID</label>
-                     <input type="text" id="nid" name="nid" class="form-control rounded-0" placeholder="Your national id card number" >
+                     <input type="text" id="nid" name="nid" class="form-control rounded-0" placeholder="Your national id card number" value="{{ old('nid') }}">
                  </div>
              </div>
              <div class="col-md-6 col-lg-6">
@@ -214,7 +214,7 @@
              <div class="col-md-6 col-lg-6">
                  <div class="form-group">
                      <label for="contact_number">Contact number</label>
-                     <input type="text" id="con_no" name="con_no" class="form-control rounded-0 @error('con_no') border-danger @enderror" placeholder="Your Contact number">
+                     <input type="text" id="con_no" name="con_no" class="form-control rounded-0 @error('con_no') border-danger @enderror" placeholder="Your Contact number" value="{{ old('con_no') }}">
                      @error('con_no')
                      <span class="input-error">
                          <strong>{{ $message }}</strong>
@@ -225,7 +225,7 @@
              <div class="col-md-6 col-lg-6">
                  <div class="form-group">
                      <label for="email">Email </label>
-                     <input type="email" id="email" name="email" class="form-control rounded-0 @error('email') border-danger @enderror" value="{{ Auth::user()->email }}" readonly>
+                     <input type="email" id="email" name="email" class="form-control rounded-0 @error('email') border-danger @enderror" value="{{ Auth::user()->email }}" readonly >
                      @error('email')
                      <span class="input-error">
                          <strong>{{ $message }}</strong>
@@ -257,7 +257,7 @@
              <div class="col-md-6 col-lg-6">
                  <div class="form-group">
                      <label for="address">Address</label>
-                     <textarea name="address" id="address" class="form-control rounded-0 @error('address') border-danger @enderror" placeholder="Your present address"></textarea>
+                     <textarea name="address" id="address" class="form-control rounded-0 @error('address') border-danger @enderror" placeholder="Your present address" value="{{ old('address') }}"></textarea>
                      @error('address')
                      <span class="input-error">
                          <strong>{{ $message }}</strong>
@@ -268,7 +268,7 @@
              <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     <label for="skill">Skill</label>
-                    <textarea name="skill" id="skill" class="form-control rounded-0 @error('skill') border-danger @enderror" placeholder="Write Something about you skill"></textarea>
+                    <textarea name="skill" id="skill" class="form-control rounded-0 @error('skill') border-danger @enderror" placeholder="Write Something about you skill" value="{{ old('skill') }}"></textarea>
                     @error('skill')
                     <span class="input-error">
                         <strong>{{ $message }}</strong>
@@ -282,6 +282,12 @@
                     <label for="image">Select a image (size less than 1mb)</label>
                     <br>
                     <input type="file" name="image">
+                    <br>
+                    @error('image')
+                    <span class="input-error">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
                 </div>
             </div>
           <div class="col-md-12 col-lg-12">

@@ -48,7 +48,7 @@ class PersonalInfoController extends Controller
             'blood_group' => ['required'],
             'address' => ['required'],
             'skill' => ['required'],
-            'image' => ['required'],
+            'image' => ['required','max:1024'],
         ]);
 
         $data = new PersonalInfo();

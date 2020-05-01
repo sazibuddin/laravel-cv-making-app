@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\EducationInfo;
+use Illuminate\Support\Facades\Auth;
+
 class EducationInfoController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class EducationInfoController extends Controller
      */
     public function index()
     {
-        return view('frontend.profile.education');
+        $educations = EducationInfo::where('user_id', Auth::user()->id )->get();
+        return view('frontend.profile.education', compact('educations'));
     }
 
     /**

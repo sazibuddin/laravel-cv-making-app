@@ -10,7 +10,8 @@ use App\EducationInfo;
 class AdminController extends Controller
 {
     public function admin() {
-        return view('admin.index');
+        $users = User::where('role', 'user')->count();
+        return view('admin.index',compact('users'));
     }
 
     public function all_member() {
@@ -169,7 +170,11 @@ class AdminController extends Controller
 
 
     public function deleteUser($id){
+
         $user = User::findOrFail($id);
+        $person_info = PersonalInfo::where('user_id', $id )->delete();
+        $education_info = EducationInfo::where('user_id', $id )->delete();
+        $experience_info = ExperienceInfo::where('user_id', $id )->delete();
         $res = $user->delete();
         if($res){
             $notification = array(

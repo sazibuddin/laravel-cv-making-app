@@ -51,6 +51,7 @@
 @section('admin_content')
 <div class="cv-view-main">
     <div class="card">
+        @if($users->personalInfo && $users->personalInfo->count() > 0)
         <div class="card-body">
             <div class="cv-header d-flex justify-content-between">
                <div class="header-info">
@@ -103,6 +104,12 @@
                
             </div>
         </div>
+        @else 
+        <div class="warning-area p-3">
+            <div class="alert alert-info">This user don't submit his personal information yet</div>    
+        </div>   
+        @endif
+       
     </div>
   </div>
 @endsection
