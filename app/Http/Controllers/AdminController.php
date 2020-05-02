@@ -9,6 +9,10 @@ use App\ExperienceInfo;
 use App\EducationInfo;
 class AdminController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('admin');
+    // }
     public function admin() {
         $users = User::where('role', 'user')->count();
         return view('admin.index',compact('users'));

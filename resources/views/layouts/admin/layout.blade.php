@@ -92,18 +92,10 @@
                               <div class="dropdown-content-body">
                                   <ul>
                                       <li>
-                                          <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
-                                      </li>
-                                      <li>
-                                          <a href="javascript:void()">
-                                              <i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill gradient-1">3</div>
-                                          </a>
+                                          <a href="{{ url('admin/profile/'.Auth::user()->id) }}"><i class="icon-user"></i> <span>Profile</span></a>
                                       </li>
                                       
                                       <hr class="my-2">
-                                      <li>
-                                          <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
-                                      </li>
                                       <li>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" >
                                             @csrf
@@ -143,7 +135,8 @@
                         <i class="icon-notebook menu-icon"></i><span class="nav-text">Admin</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><li><a href="#"> Admin</a></li></li>
+                        <li><li><a href="{{ url('admin/index') }}">All admin</a></li></li>
+                        <li><li><a href="{{ url('admin/add') }}">Add admin</a></li></li>
                       
                     </ul>
                 </li>

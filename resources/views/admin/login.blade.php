@@ -26,6 +26,14 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
                             <h4 class="text-center mt-4 mb-4">Future fasholonology</h4>
+                            @if(session()->has('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session()->get('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            @endif
                                 @if(session()->has('failed'))
                                 <div class="alert alert-danger">
                                     {{ session()->get('failed') }}

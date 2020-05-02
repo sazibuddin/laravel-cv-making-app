@@ -13,12 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('auth.register');
 });
 Route::get('/admin/login', 'AdminController@showLogin');
 Route::post('/admin/login/login', 'Auth\LoginController@authenticate')->name('admin.login');
-Auth::routes();
 
 
 
@@ -36,6 +37,15 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::post('update/experienceInfo/{id}', 'AdminController@updateexperienceInfo');  
     Route::get('admin/edit/educationalInfo/{id}', 'AdminController@editeducationalInfo');  
     Route::post('update/educationalInfo/{id}', 'AdminController@updateeducationalnfo');  
+
+
+
+    // admin mange route 
+
+    Route::get('admin/index', 'AdminManageController@index');
+    Route::get('admin/profile/{id}', 'AdminManageController@profile');
+    Route::get('admin/delete/admin/{id}', 'AdminManageController@destroy');
+    Route::post('admin/password/update/{id}', 'AdminManageController@passUpdate');
     
 });
 
