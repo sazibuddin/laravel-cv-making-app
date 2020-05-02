@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.register');
 });
-
+Route::get('/admin/login', 'AdminController@showLogin');
+Route::post('/admin/login/login', 'Auth\LoginController@authenticate')->name('admin.login');
 Auth::routes();
 
 

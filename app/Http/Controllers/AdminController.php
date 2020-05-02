@@ -14,6 +14,12 @@ class AdminController extends Controller
         return view('admin.index',compact('users'));
     }
 
+    
+    public function showLogin()
+    {
+        return view('admin.login');
+    }
+
     public function all_member() {
         $users = User::where('role', 'user')->orderBy('id','DESC')->paginate(5);
         

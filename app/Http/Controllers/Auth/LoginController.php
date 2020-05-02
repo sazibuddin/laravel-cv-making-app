@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
@@ -28,7 +29,22 @@ class LoginController extends Controller
      * @var string
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
-    // protected $redirectTo;
+    protected $redirectTo;
+
+    public function authenticate(Request $request)
+    {
+         $email = $request->email;
+         $password = $request->password;
+        if (Auth::attempt(['email' => $email, 'password' => $password , 'role' => 'admin'])) {
+            return Redirect()->route('admin.home');
+ 
+        }else{
+            return redirect()->back()->with('failed', "This credientials don't match with our records");
+        }
+
+    }
+
+
 
     /**
      * Create a new controller instance.
@@ -37,15 +53,10 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        if(Auth::check()){
-            if(Auth::user()->role == "admin"){
-
-                $this->redirectTo = route('admin.home');
-            }else{
-                $this->redirectTo = route('home');
-            }
-        }
-
         $this->middleware('guest')->except('logout');
     }
+
+   
+
+  
 }
