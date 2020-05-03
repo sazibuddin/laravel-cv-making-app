@@ -44,83 +44,90 @@
          <!-- star personal info form  -->
 
         @if($information && $information->count() > 0)
-        <a href="{{ url('user/edit/personalInfo/'.$information->id) }}" class="btn btn-success rounded-0">Edit</a>
-         <form>
-            <div class="row">
-            <div class="col-md-12">
-                <hr>
-            </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label for="name">Full name</label>
-                        <h6 class="mt-1"><b>{{ $information->name }}</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label for="fathers_name">Father's name </label>
-                        <h6 class="mt-1"><b>{{ $information->fathers_name }}</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label for="mothers_name">mother's name * </label>
-                        <h6 class="mt-1"><b>{{ $information->mothers_name }}</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label for="nationality">Nationality </label>
-                        <h6 class="mt-1"><b>{{ $information->nationality }}</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label for="nid">NID</label>
-                        <h6 class="mt-1"><b>{{ $information->nid }}</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label for="gender">Gender</label>
-                       <h6 class="mt-1"><b>{{ $information->gender }}</b></h6>
-                    
-                    </div>
-                </div>
-              
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label for="contact_number">Contact number</label>
-                        <h6 class="mt-1"><b>{{ $information->con_no }}</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label for="email">Email </label>
-                        <h6 class="mt-1"><b>{{ $information->email }}</b></h6>
-                     </div>
-                </div>
-                 <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label for="blood_group">Blood group</label>
-                        <h6 class="mt-1"><b>{{ $information->blood_group }}</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <h6 class="mt-1"><b>{{ $information->address }}</b></h6>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label>Image : </label>
-                        <img src="{{ url($information->image) }}" alt="">
-                    </div>
-                </div>
+         <div class="card">
+             <div class="card-header d-flex justify-content-between">
+                <h4>Personal information</h4>
+                <a href="{{ url('user/edit/personalInfo/'.$information->id) }}" class="btn btn-success rounded-0">Edit</a>
              </div>
-             
-        </form>
+             <div class="card-body">
+                <form>
+                    <div class="row">
+                    <div class="col-md-12">
+                        <hr>
+                    </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="name">Full name</label>
+                                <h6 class="mt-1"><b>{{ $information->name }}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="fathers_name">Father's name </label>
+                                <h6 class="mt-1"><b>{{ $information->fathers_name }}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="mothers_name">mother's name * </label>
+                                <h6 class="mt-1"><b>{{ $information->mothers_name }}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="nationality">Nationality </label>
+                                <h6 class="mt-1"><b>{{ $information->nationality }}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="nid">NID</label>
+                                <h6 class="mt-1"><b>{{ $information->nid }}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                               <h6 class="mt-1"><b>{{ $information->gender }}</b></h6>
+                            
+                            </div>
+                        </div>
+                      
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="contact_number">Contact number</label>
+                                <h6 class="mt-1"><b>{{ $information->con_no }}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="email">Email </label>
+                                <h6 class="mt-1"><b>{{ $information->email }}</b></h6>
+                             </div>
+                        </div>
+                         <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="blood_group">Blood group</label>
+                                <h6 class="mt-1"><b>{{ $information->blood_group }}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <h6 class="mt-1"><b>{{ $information->address }}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label>Image : </label>
+                                <img src="{{ url($information->image) }}" alt="">
+                            </div>
+                        </div>
+                     </div>
+                     
+                </form>
+             </div>
+         </div>
 
 
          @else 

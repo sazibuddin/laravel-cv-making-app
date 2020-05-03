@@ -28,9 +28,26 @@ class LoginController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = RouteServiceProvider::HOME;
-    protected $redirectTo;
+    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo;
 
+
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+    //    if(Auth::check() && Auth::user()->role !='admin'){
+    //     $this->redirectTo = route('home');
+    //    }
+        $this->middleware('guest')->except('logout');
+    }
+
+   
     public function authenticate(Request $request)
     {
          $email = $request->email;
@@ -43,20 +60,6 @@ class LoginController extends Controller
         }
 
     }
-
-
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
-
-   
 
   
 }

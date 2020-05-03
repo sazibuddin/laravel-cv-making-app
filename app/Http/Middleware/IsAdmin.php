@@ -21,7 +21,7 @@ class IsAdmin
 
             return $next($request);
         }else{
-            return redirect()->route('login');
+            return Redirect()->to('admin/login');
         }
 
     }
