@@ -47,19 +47,13 @@
                                         
                                         </div>
                                       </div>
-
-
-
-
-                                   
-
-                                    <a href="{{ url('admin/delete/user/'.$item->id) }}"class="btn btn-danger btn-sm rounded-0 ml-1" onclick="return confirm('Are you sure want to delte this data ? ')"><i class="fas fa-trash"></i></a>
+                                        <a href="{{ url('admin/delete/user/'.$item->id) }}"class="btn btn-danger btn-sm rounded-0 ml-1" onclick="return confirm('Are you sure want to delte this data ? ')"><i class="fas fa-trash"></i></a>
                                   </div>   
                             </td>    
                         </tr> 
                      @endforeach
-                     
                   </tbody>
+                  {{ $users->links() }}
                 </table>
             </div>
        </div>
