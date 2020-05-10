@@ -17,7 +17,7 @@ class AdminManageController extends Controller
     public function index()
     {
         
-        $users = User::where('role', 'admin')->orderBy('id','DESC')->paginate(5);
+        $users = User::where('role_id', 1)->orderBy('id','DESC')->paginate(5);
         
         return view('admin.admin.index',compact('users'));
     }
@@ -66,16 +66,27 @@ class AdminManageController extends Controller
      
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+  public function makeadmin(Request $request , $id) {
+    
+    $user = User::findOrFail($id);
+
+    $user->role_id = 1;
+
+    if($user->save()){
+        $notification = array(
+            'messege' => 'user status update successfully',
+            'alert-type' => 'success',
+        );
+        return Redirect()->back()->with($notification);
+    }else{
+        $notification = array(
+            'messege' => 'Failed to update status',
+            'alert-type' => 'error',
+        );
+        return Redirect()->back()->with($notification);
     }
+
+  }
 
     /**
      * Show the form for editing the specified resource.

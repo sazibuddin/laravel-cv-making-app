@@ -16,6 +16,7 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Action</th>
+                    <th>make admin</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -47,9 +48,15 @@
                                         
                                         </div>
                                       </div>
-                                        <a href="{{ url('admin/delete/user/'.$item->id) }}"class="btn btn-danger btn-sm rounded-0 ml-1" onclick="return confirm('Are you sure want to delte this data ? ')"><i class="fas fa-trash"></i></a>
+                                        <a href="{{ url('admin/delete/user/'.$item->id) }}"class="btn btn-danger btn-sm rounded-0 ml-1" onclick="return confirm('Are you sure want to delete this data ? ')"><i class="fas fa-trash"></i></a>
                                   </div>   
                             </td>    
+                            <td>  
+                                
+                                <form action="{{ url('admin/make/admin/'.$item->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-secondary btn-sm rounded-0 ml-1" onclick="return confirm('Are you sure want make admin this user ? ')">make admin</button>
+                                </form>
                         </tr> 
                      @endforeach
                   </tbody>

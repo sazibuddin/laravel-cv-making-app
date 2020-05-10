@@ -26,15 +26,20 @@ class ConfirmPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    public function __construct() {
+        if(Auth::check() && Auth::user()->role->id == 1){
+                $this->redirectTo = route('home');
+            }else{
+                $this->redirectTo = route('admin.home');
+            }
+        
+            $this->middleware('auth');
+        }
 }

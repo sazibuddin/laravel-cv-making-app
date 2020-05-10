@@ -28,8 +28,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-    // protected $redirectTo;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo;
 
 
 
@@ -41,25 +41,15 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-    //    if(Auth::check() && Auth::user()->role !='admin'){
-    //     $this->redirectTo = route('home');
-    //    }
+        if(Auth::check() && Auth::user()->role->id == 1){
+            $this->redirectTo = route('home');
+        }else{
+            $this->redirectTo = route('admin.home');
+        }
         $this->middleware('guest')->except('logout');
     }
 
-   
-    public function authenticate(Request $request)
-    {
-         $email = $request->email;
-         $password = $request->password;
-        if (Auth::attempt(['email' => $email, 'password' => $password , 'role' => 'admin'])) {
-            return Redirect()->route('admin.home');
  
-        }else{
-            return redirect()->back()->with('failed', "This credientials don't match with our records");
-        }
-
-    }
 
   
 }

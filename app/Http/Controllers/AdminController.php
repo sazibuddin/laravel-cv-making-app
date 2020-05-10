@@ -14,18 +14,19 @@ class AdminController extends Controller
     //     $this->middleware('admin');
     // }
     public function admin() {
-        $users = User::where('role', 'user')->count();
-        return view('admin.index',compact('users'));
+        $users = User::where('role_id', 2)->count();
+        $admin = User::where('role_id', 1)->count();
+        return view('admin.index',compact('users','admin'));
     }
 
     
-    public function showLogin()
-    {
-        return view('admin.login');
-    }
+    // public function showLogin()
+    // {
+    //     return view('admin.login');
+    // }
 
     public function all_member() {
-        $users = User::where('role', 'user')->orderBy('id','DESC')->paginate(5);
+        $users = User::where('role_id', 2)->orderBy('id','DESC')->paginate(5);
         
         return view('admin.member.index',compact('users'));
     }
