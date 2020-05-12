@@ -73,14 +73,14 @@
                               <div class="dropdown-content-body">
                                   <ul>
                                       <li>
-                                          <a href="{{ url('admin/profile/'.Auth::user()->id) }}"><i class="icon-user"></i> <span>Profile</span></a>
+                                          <a href="{{ url('admin/profile/'.Auth::user()->id) }}" class="btn btn-default btn-block"><i class="icon-user"></i> <span>Profile</span></a>
                                       </li>
                                       
                                       <hr class="my-2">
                                       <li>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" >
                                             @csrf
-                                            <button type="submit" class="btn btn-link">Logout</button>
+                                            <button type="submit" class="btn btn-default btn-block">Logout</button>
                                         </form>
                                       </li>
                                   </ul>
@@ -117,7 +117,6 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><li><a href="{{ url('admin/index') }}">All admin</a></li></li>
-                        <li><li><a href="{{ url('admin/add') }}">Add admin</a></li></li>
                       
                     </ul>
                 </li>

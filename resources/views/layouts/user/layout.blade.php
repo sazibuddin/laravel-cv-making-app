@@ -37,7 +37,7 @@
                   <a class="nav-link" href="{{ url('user-profile/'. Auth::user()->id) }}">Preview cv</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url('personal_info')}}">edit cv</a>
+                  <a class="nav-link" href="{{ url('personal_info')}}">Edit cv</a>
                 </li>
                  <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

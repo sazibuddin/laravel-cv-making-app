@@ -27,7 +27,7 @@ Route::get('/', function () {
 
 // admin middleware and route 
 Route::group(['middleware' => ['auth','admin']], function () {
-    Route::get('/admin/home', 'AdminController@admin')->name('admin.home');  
+    Route::get('/admin', 'AdminController@admin')->name('admin.home');  
     Route::get('/admin/home/all/user', 'AdminController@all_member')->name('admin.all.member');  
     Route::get('/admin/view/user/{id}', 'AdminController@show');  
     Route::get('admin/delete/user/{id}', 'AdminController@deleteUser');  
